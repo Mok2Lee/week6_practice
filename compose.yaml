@@ -1,8 +1,9 @@
 name: week6sender
 services:
   sender:
+    build: .
     image: week6_sender01
-    pull_policy: never
+    pull_policy: build
     container_name: week6_sender01
     ports:
       - "8090:5000"
