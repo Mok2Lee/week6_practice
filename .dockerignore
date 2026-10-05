@@ -1,0 +1,13 @@
+.git/
+.venv/
+__pycache__/
+*.py[cod]
+*.log
+logs/
+certs/
+.env
+.pytest_cache/
+.lab/
+tests/
+evidence/
+submission/

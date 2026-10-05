@@ -1,0 +1,14 @@
+certs/
+*.key
+*.crt
+*.pem
+.env
+.venv/
+__pycache__/
+*.py[cod]
+*.log
+logs/
+.pytest_cache/
+.lab/
+evidence/
+submission/

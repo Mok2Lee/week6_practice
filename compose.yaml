@@ -1,0 +1,17 @@
+name: week6sender
+services:
+  sender:
+    build: .
+    image: week6_sender01
+    container_name: week6_sender01
+    ports:
+      - "8090:5000"
+    environment:
+      TARGET_BASE: http://host.docker.internal:8080
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+    networks:
+      - sender_net
+networks:
+  sender_net:
+    name: week6_net01

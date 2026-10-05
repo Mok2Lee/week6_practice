@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="ko">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>week6 요청 발생기</title><link rel="stylesheet" href="style.css"><script defer src="app.js"></script></head>
+<body><main>
+<header><p>WEEK 6 · DOCKER COMPOSE</p><h1>API 요청 발생기</h1>
+<p>요청 수를 조절하고 week6의 Pod 수가 어떻게 바뀌는지 확인합니다.</p>
+<a href="http://localhost:8080" target="_blank" rel="noopener">week6 대시보드 열기</a></header>
+<section><h2>1. 요청 수 설정</h2>
+<label for="function">요청할 API</label>
+<select id="function"><option value="projects">프로젝트 검색 · 예약</option><option value="analyze">소개글 분량 검사</option></select>
+<label for="rate">분당 요청 수: <strong id="rate-label">40</strong>건</label>
+<input id="rate" type="range" min="0" max="250" step="10" value="40">
+<div class="scale"><span>0</span><span>50</span><span>100</span><span>150</span><span>200</span><span>250</span></div>
+<p>현재 설정: <strong id="interval">1.50초마다 1회</strong></p>
+<button id="start">요청 시작</button> <button id="stop" class="secondary" disabled>요청 중지</button>
+<p id="control-message" role="status">40건 → 120건 → 220건 순서로 변경해 보세요.</p>
+</section>
+<section><h2>2. 실제 전송 확인</h2>
+<table><tbody>
+<tr><th>전송 상태</th><td id="running">확인 중</td></tr>
+<tr><th>최근 60초 전송 / 성공</th><td><span id="sent-minute">—</span> / <span id="success-minute">—</span>건</td></tr>
+<tr><th>누적 성공 / 실패</th><td><span id="success">—</span> / <span id="failed">—</span>건</td></tr>
+<tr><th>평균 응답 시간 · 최근 60초</th><td><span id="latency">—</span> ms</td></tr>
+<tr><th>마지막 응답 Pod</th><td id="pod">—</td></tr>
+<tr><th>마지막 API 결과</th><td id="result">—</td></tr>
+</tbody></table><p id="error" class="error" role="alert"></p>
+<p class="note">설정한 요청 수와 실제 전송 수는 다를 수 있습니다. 연결 실패나 느린 응답도 위에 표시됩니다.</p>
+</section>
+<footer>요청 중지 후 최근 60초 요청 수가 줄어들 때까지 기다려 보세요. Pod 수는 바로 바뀌지 않습니다.</footer>
+</main></body></html>
